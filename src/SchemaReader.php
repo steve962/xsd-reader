@@ -1477,11 +1477,16 @@ class SchemaReader
 
     /** @var callable $reportCallback */
     private $reportCallback;
-    public function setReportCallback(callable $rc)
+    public function setReportCallback(callable $rc) : void
     {
         $this->reportCallback = $rc;
     }
-    private function reportProgress(string $report, array $data)
+
+    /**
+     * @param string $report
+     * @param array<mixed> $data
+     */
+    private function reportProgress(string $report, array $data) : void
     {
         if (!empty($this->reportCallback)) {
             call_user_func($this->reportCallback, $report, $data);
