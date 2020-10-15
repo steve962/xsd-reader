@@ -1476,7 +1476,7 @@ class SchemaReader
     }
 
     /** @var callable $reportCallback */
-    private $reportCallback;
+    private $reportCallback = false;
     public function setReportCallback(callable $rc) : void
     {
         $this->reportCallback = $rc;
