@@ -41,7 +41,7 @@ class AbstractElementSingle extends Item implements ElementSingle
     /**
      * @var array|null
      */
-    protected $xsdAttributes = null;
+//    protected $xsdAttributes = null;
 
 
     public function isQualified(): bool
@@ -104,6 +104,7 @@ class AbstractElementSingle extends Item implements ElementSingle
         $this->default = $default;
     }
 
+    /*
     public function getXsdAttributes()
     {
         return $this->xsdAttributes;
@@ -113,4 +114,5 @@ class AbstractElementSingle extends Item implements ElementSingle
     {
         $this->setXsdAttributes = $xsdAttributes;
     }
+    */
 }

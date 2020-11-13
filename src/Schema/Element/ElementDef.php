@@ -8,4 +8,18 @@ use GoetasWebservices\XML\XSDReader\Schema\Item;
 
 class ElementDef extends Item implements ElementItem
 {
+    /**
+     * @var array|null
+     */
+    protected $xsdAttributes = null;
+
+    public function getXsdAttributes()
+    {
+        return $this->xsdAttributes;
+    }
+
+    public function setXsdAttributes(array $xsdAttributes): void
+    {
+        $this->setXsdAttributes = $xsdAttributes;
+    }
 }

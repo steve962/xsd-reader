@@ -440,7 +440,7 @@ class SchemaReader
             /* Save all other attributes, too
              */
             if ($childNode->hasAttributes()) {
-                $element->setXsdAttributes($this->nodeAttributeArray($childNode));
+                $elementDef->setXsdAttributes($this->nodeAttributeArray($childNode));
             }
         } else {
             $element = $this->loadElement(
@@ -1428,9 +1428,9 @@ class SchemaReader
 
         /* Save all other attributes, too
          */
-        if ($node->hasAttributes()) {
-            $element->setXsdAttributes($this->nodeAttributeArray($node));
-        }
+//        if ($node->hasAttributes()) {
+//            $element->setXsdAttributes($this->nodeAttributeArray($node));
+//        }
 
         $parentNode = $node->parentNode;
 
