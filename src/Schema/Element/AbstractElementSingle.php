@@ -104,7 +104,7 @@ class AbstractElementSingle extends Item implements ElementSingle
         $this->default = $default;
     }
 
-    public function getXsdAttributes(): array
+    public function getXsdAttributes()
     {
         return $this->xsdAttributes;
     }

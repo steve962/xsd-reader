@@ -94,7 +94,7 @@ abstract class Type implements SchemaItem
         $this->extension = $extension;
     }
 
-    public function getXsdAttributes(): array
+    public function getXsdAttributes()
     {
         return $this->xsdAttributes;
     }
