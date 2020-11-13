@@ -436,12 +436,6 @@ class SchemaReader
             if ($childNode->hasAttribute('form')) {
                 $element->setQualified($childNode->getAttribute('form') == 'qualified');
             }
-
-            /* Save all other attributes, too
-             */
-            if ($childNode->hasAttributes()) {
-                $elementDef->setXsdAttributes($this->nodeAttributeArray($childNode));
-            }
         } else {
             $element = $this->loadElement(
                 $elementContainer->getSchema(),
@@ -1105,6 +1099,14 @@ class SchemaReader
         }
 
         $element->setType($type);
+
+
+        /* Save all other attributes, too
+         */
+        if ($node->hasAttributes()) {
+            $element->setXsdAttributes($this->nodeAttributeArray($node));
+        }
+
     }
 
     private function loadImport(
