@@ -38,6 +38,12 @@ class AbstractElementSingle extends Item implements ElementSingle
      */
     protected $default = null;
 
+    /**
+     * @var string|null
+     */
+    protected $substitutionGroup = null;
+
+
     public function isQualified(): bool
     {
         return $this->qualified;
@@ -96,5 +102,15 @@ class AbstractElementSingle extends Item implements ElementSingle
     public function setDefault(string $default): void
     {
         $this->default = $default;
+    }
+
+    public function getSubstitutionGroup(): ?string
+    {
+        return $this->substitutionGroup;
+    }
+
+    public function setSubstitutionGroup(string $substitutionGroup): void
+    {
+        $this->substitutionGroup = $substitutionGroup;
     }
 }

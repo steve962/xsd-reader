@@ -436,6 +436,9 @@ class SchemaReader
             if ($childNode->hasAttribute('form')) {
                 $element->setQualified($childNode->getAttribute('form') == 'qualified');
             }
+            if ($childNode->hasAttribute('substitutionGroup')) {
+                $element->setSubstitutionGroup($childNode->getAttribute('substitutionGroup'));
+            }
         } else {
             $element = $this->loadElement(
                 $elementContainer->getSchema(),
@@ -1400,6 +1403,9 @@ class SchemaReader
         }
         if ($node->hasAttribute('form')) {
             $element->setQualified($node->getAttribute('form') == 'qualified');
+        }
+        if ($node->hasAttribute('substitutionGroup')) {
+            $element->setSubstitutionGroup($node->getAttribute('substitutionGroup'));
         }
 
         $parentNode = $node->parentNode;
