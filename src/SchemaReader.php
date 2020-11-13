@@ -436,8 +436,11 @@ class SchemaReader
             if ($childNode->hasAttribute('form')) {
                 $element->setQualified($childNode->getAttribute('form') == 'qualified');
             }
-            if ($childNode->hasAttribute('substitutionGroup')) {
-                $element->setSubstitutionGroup($childNode->getAttribute('substitutionGroup'));
+
+            /* Save all other attributes, too
+             */
+            if ($childNode->hasAttributes()) {
+                $element->setXsdAttributes($this->nodeAttributeArray($childNode));
             }
         } else {
             $element = $this->loadElement(
@@ -740,6 +743,12 @@ class SchemaReader
     {
         if ($checkAbstract) {
             $type->setAbstract($node->getAttribute('abstract') === 'true' || $node->getAttribute('abstract') === '1');
+        }
+
+        /* Save all other attributes, too
+         */
+        if ($node->hasAttributes()) {
+            $type->setXsdAttributes($this->nodeAttributeArray($node));
         }
 
         self::againstDOMNodeList(
@@ -1376,6 +1385,18 @@ class SchemaReader
         }
     }
 
+    private function nodeAttributeArray(
+        DOMElement $node
+    ) : array {
+        $attributes = [];
+        $len = $node->attributes->length;
+        for ($i = 0; $i < $len; $i++) {
+            $name = $node->attributes->item($i)->name;
+            $attributes[$name] = $node->getAttribute($name);
+        }
+        return $attributes;
+    }
+
     private function loadElement(
         Schema $schema,
         DOMElement $node
@@ -1404,8 +1425,11 @@ class SchemaReader
         if ($node->hasAttribute('form')) {
             $element->setQualified($node->getAttribute('form') == 'qualified');
         }
-        if ($node->hasAttribute('substitutionGroup')) {
-            $element->setSubstitutionGroup($node->getAttribute('substitutionGroup'));
+
+        /* Save all other attributes, too
+         */
+        if ($node->hasAttributes()) {
+            $element->setXsdAttributes($this->nodeAttributeArray($node));
         }
 
         $parentNode = $node->parentNode;

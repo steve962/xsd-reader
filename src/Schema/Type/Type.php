@@ -35,6 +35,11 @@ abstract class Type implements SchemaItem
      */
     protected $extension;
 
+    /**
+     * @var array|null
+     */
+    protected $xsdAttributes = null;
+
     public function __construct(Schema $schema, string $name = null)
     {
         $this->name = $name ?: null;
@@ -88,4 +93,15 @@ abstract class Type implements SchemaItem
     {
         $this->extension = $extension;
     }
+
+    public function getXsdAttributes(): array
+    {
+        return $this->xsdAttributes;
+    }
+
+    public function setXsdAttributes(array $xsdAttributes): void
+    {
+        $this->setXsdAttributes = $xsdAttributes;
+    }
+
 }

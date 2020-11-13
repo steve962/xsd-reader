@@ -39,9 +39,9 @@ class AbstractElementSingle extends Item implements ElementSingle
     protected $default = null;
 
     /**
-     * @var string|null
+     * @var array|null
      */
-    protected $substitutionGroup = null;
+    protected $xsdAttributes = null;
 
 
     public function isQualified(): bool
@@ -104,13 +104,13 @@ class AbstractElementSingle extends Item implements ElementSingle
         $this->default = $default;
     }
 
-    public function getSubstitutionGroup(): ?string
+    public function getXsdAttributes(): array
     {
-        return $this->substitutionGroup;
+        return $this->xsdAttributes;
     }
 
-    public function setSubstitutionGroup(string $substitutionGroup): void
+    public function setXsdAttributes(array $xsdAttributes): void
     {
-        $this->substitutionGroup = $substitutionGroup;
+        $this->setXsdAttributes = $xsdAttributes;
     }
 }
