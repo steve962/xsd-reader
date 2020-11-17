@@ -44,7 +44,7 @@ abstract class Item implements SchemaItem
 
     public function setXsdAttributes(array $xsdAttributes): void
     {
-        $this->setXsdAttributes = $xsdAttributes;
+        $this->xsdAttributes = $xsdAttributes;
     }
 
 }
