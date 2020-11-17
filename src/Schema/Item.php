@@ -31,4 +31,20 @@ abstract class Item implements SchemaItem
     {
         $this->type = $type;
     }
+
+    /**
+     * @var array|null
+     */
+    protected $xsdAttributes = null;
+
+    public function getXsdAttributes()
+    {
+        return $this->xsdAttributes;
+    }
+
+    public function setXsdAttributes(array $xsdAttributes): void
+    {
+        $this->setXsdAttributes = $xsdAttributes;
+    }
+
 }
